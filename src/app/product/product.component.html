@@ -1,0 +1,19 @@
+
+<div *ngIf="products.length>0;then list; else nolist">
+
+</div>
+<ng-template #list>
+    <table>
+        <tr *ngFor="let product of products">
+            <td> {{ product.id}} </td>
+            <td> {{ product.name}} </td>
+            <td> {{ product.price}} </td>
+        </tr>
+    </table>
+</ng-template>
+
+<ng-template #nolist>
+    <h1> Thgere are no records </h1>
+</ng-template>
+
+<button type="button" (click)="AddProduct()"> Add Product </button>
