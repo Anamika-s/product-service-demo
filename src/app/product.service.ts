@@ -1,3 +1,4 @@
+import { trigger } from '@angular/animations';
 import { Injectable } from '@angular/core';
 import { Product } from 'src/product';
 @Injectable({
@@ -5,6 +6,7 @@ import { Product } from 'src/product';
 })
 export class ProductService {
 products : Product[]=[];
+product : Product;
    constructor() {
      this.LoadProducts();
  
@@ -36,4 +38,29 @@ AddProduct(product : Product)
 {
 this.products.push(product);
 }
+ 
+GetProductById(id : number) : Product
+{
+   
+  for(let product of this.products)
+  {
+    if(product.id == id)
+    this.product = product;
+ break;
+  }
+  return this.product;
+   }
+
+   DeleteProduct(id : number)
+   {  
+   this.product =  this.GetProductById(id);
+    let position =0;
+    position = this.products.indexOf(this.product);
+console.log(position);
+    this.products.splice(position,1);
+
+   }
+
+    
+   
 }

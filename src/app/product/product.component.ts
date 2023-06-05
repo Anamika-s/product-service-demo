@@ -28,7 +28,13 @@ AddProduct()
   this.product = {id:10, name : "PLotter", price:10};
   this._productService.AddProduct(this.product)
 }
-  
-  
+  GetProductById()
+  {
+    this.product = this._productService.GetProductById(1);
+  }
+  DeleteProduct()
+  {this._productService.DeleteProduct(10);
+
+  }
 
 }
