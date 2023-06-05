@@ -1,0 +1,34 @@
+{
+  "products": [
+    {
+      "id": 10,
+      "name": "Mouse",
+      "price": 1000
+    },
+    {
+      "id": 11,
+      "name": "Plotter",
+      "price": 1000
+    },
+    {
+      "id": 12,
+      "name": "Scanner",
+      "price": 1000
+    },
+    {
+      "id": 13,
+      "name": "Printer",
+      "price": 1000
+    },
+    {
+      "id": 14,
+      "name": "Monitor",
+      "price": 1000
+    },
+    {
+      "id": 20,
+      "name": "Scanne",
+      "price": 900
+    }
+  ]
+}
