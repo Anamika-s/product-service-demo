@@ -37,4 +37,10 @@ AddProduct()
 
   }
 
+  EditProduct()
+  {
+    this.product = {id:11, name : "nnnnn", price:1000};
+    this._productService.EditProduct(11, this.product )
+  }
+
 }

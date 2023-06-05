@@ -1,4 +1,5 @@
 import { trigger } from '@angular/animations';
+import { compileNgModule } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 import { Product } from 'src/product';
 @Injectable({
@@ -53,14 +54,28 @@ GetProductById(id : number) : Product
 
    DeleteProduct(id : number)
    {  
-   this.product =  this.GetProductById(id);
+  //  let product =  this.GetProductById(id);
     let position =0;
+    let product =  this.products.find(c=>id == id);
     position = this.products.indexOf(this.product);
 console.log(position);
     this.products.splice(position,1);
 
    }
 
+   EditProduct(id : number, product : Product)
+   {  
+   
+    let position =0;
+    console.log(id);
+    console.log(product)
+    let temp =  this.products.find(c=>id == id);
     
+    
+ console.log(temp)
+
+this.products[position] = product;
+     
+   }
    
 }
