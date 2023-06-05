@@ -28,12 +28,16 @@ AddProduct()
   this.product = {id:10, name : "PLotter", price:10};
   this._productService.AddProduct(this.product)
 }
-  GetProductById()
+GetProductById()  
   {
-    this.product = this._productService.GetProductById(1);
+    console.log("a")
+    let product = this._productService.GetProductById(12);
+    this.product = product;
+     
+   
   }
   DeleteProduct()
-  {this._productService.DeleteProduct(10);
+  {this._productService.DeleteProduct(12);
 
   }
 

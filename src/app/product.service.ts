@@ -7,7 +7,8 @@ import { Product } from 'src/product';
 })
 export class ProductService {
 products : Product[]=[];
-product : Product;
+  product: Product | undefined;
+// product : Product={id:0, name:"", price :0};
    constructor() {
      this.LoadProducts();
  
@@ -40,41 +41,36 @@ AddProduct(product : Product)
 this.products.push(product);
 }
  
-GetProductById(id : number) : Product
+GetProductById(id : number) 
 {
-   
-  for(let product of this.products)
-  {
-    if(product.id == id)
-    this.product = product;
- break;
-  }
-  return this.product;
+  console.log(id)
+   let index = this.products.findIndex(x=>x.id== id);
+  console.log(index)
+  console.log(this.products[index])
+  return this.products[index];
    }
 
    DeleteProduct(id : number)
    {  
-  //  let product =  this.GetProductById(id);
-    let position =0;
-    let product =  this.products.find(c=>id == id);
-    position = this.products.indexOf(this.product);
-console.log(position);
-    this.products.splice(position,1);
+    let index = this.products.findIndex(x=>x.id==id);
+    console.log("p" + index);
+      console.log("pos"+ index);
+      this.products.splice(index,1);
 
    }
 
    EditProduct(id : number, product : Product)
    {  
-   
-    let position =0;
-    console.log(id);
+     
+    let index = this.products.findIndex(x=>x.id==id);
+    console.log("p" + index);
+     
     console.log(product)
-    let temp =  this.products.find(c=>id == id);
-    
-    
- console.log(temp)
+     
+     
+    // console.log("POS" + temp)
 
-this.products[position] = product;
+    this.products[index] = product;
      
    }
    
