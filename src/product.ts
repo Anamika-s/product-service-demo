@@ -15,3 +15,13 @@ export interface Product{
     name : string;
     price : number;
 }
+
+export class Student 
+{
+    id : number=0;
+    name :string="";
+    address : string="";
+    marks : number=0;
+
+    documentId : string;
+}

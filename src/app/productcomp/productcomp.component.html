@@ -1,1 +1,46 @@
 <p>productcomp works!</p>
+
+<form [formGroup]="myForm" (ngSubmit)="submit(myForm)">
+  
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input 
+            formControlName="name"
+            id="name" 
+            type="text" 
+            class="form-control">
+     </div>
+
+    <div class="form-group">
+        <label for="address">address</label>
+        <input 
+            formControlName="address"
+            id="address" 
+            type="text" 
+            class="form-control">
+       
+    </div>
+
+    <div class="form-group">
+        <label for="marks">marks</label>
+        <input 
+            formControlName="marks"
+            id="marks" 
+            type="number" 
+            class="form-control">
+        
+    </div>
+      
+    <div class="form-group">
+        <label for="file">File</label>
+        <input 
+            formControlName="file"
+            id="file" 
+            type="file" 
+            class="form-control"
+            (change)="onFileChange($event)">
+     </div>
+          
+    <button class="btn btn-primary" type="submit">Submit</button>
+</form>
+ 

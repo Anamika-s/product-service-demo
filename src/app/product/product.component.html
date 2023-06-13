@@ -8,6 +8,12 @@
             <td> {{ product.id}} </td>
             <td> {{ product.name}} </td>
             <td> {{ product.price}} </td>
+            <td> <button type="button" 
+                (click)=DeleteProduct(product.id)> Delete </button></td>
+            <td> {{ product.price}} </td>
+            <td> <a 
+                [routerLink]="['/details/',product.id]"> Edit </a></td>
+            
         </tr>
     </table>
 </ng-template>
@@ -16,11 +22,11 @@
     <h1> Thgere are no records </h1>
 </ng-template>
 
-<button type="button" (click)="AddProduct()"> Add Product </button>
+<!-- <button type="button" (click)="AddProduct()"> Add Product </button>
 <button type="button" (click)="GetProductById()"> GetProductById </button>
 <button type="button" (click)="DeleteProduct()"> DeleteProduct </button>
 
-<button type="button" (click)="EditProduct()"> EditProduct </button>
+<button type="button" (click)="EditProduct()"> EditProduct </button> -->
  
 {{product.id}}
 {{product.name}}

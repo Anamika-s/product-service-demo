@@ -23,6 +23,7 @@ GetProducts()
  this.products =  this._productService.GetProducts();
 }
 
+ 
 AddProduct()
 {
   this.product = {id:10, name : "PLotter", price:10};
@@ -36,8 +37,8 @@ GetProductById()
      
    
   }
-  DeleteProduct()
-  {this._productService.DeleteProduct(12);
+  DeleteProduct(id : number)
+  {this._productService.DeleteProduct(id);
 
   }
 

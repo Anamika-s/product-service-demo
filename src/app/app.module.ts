@@ -3,22 +3,28 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
-import { ProductComponent } from './product/product.component';
+ 
 import { AsyncdemoComponent } from './asyncdemo/asyncdemo.component';
 import {HttpClientModule} from '@angular/common/http';
-import { ProductcompComponent } from './productcomp/productcomp.component'
+ import {R1outingModule, comps} from './routing/routing.module';
+import { Form1Component } from './form1/form1.component';
+  import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
-    ProductComponent,
+    comps,
     AsyncdemoComponent,
-    ProductcompComponent
+    Form1Component
+     
+     
     
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    R1outingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,50 +1,56 @@
-import { Component , NgModule, OnInit } from '@angular/core';
+import { Component, NgModule, OnInit } from '@angular/core';
 import { CallproductService } from '../callproduct.service';
-import { Product } from 'src/product';
+import { Product, Student } from 'src/product';
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { subscribeOn } from 'rxjs';
 @Component({
   selector: 'app-productcomp',
   templateUrl: './productcomp.component.html',
   styleUrls: ['./productcomp.component.css']
 })
 export class ProductcompComponent implements OnInit {
- /**
-  *
-  */
- constructor(private _productService : CallproductService) {
-  
+  /**
+   *
+   */
+  myForm: FormGroup;
+   
+
+  constructor(private _fb: FormBuilder, private _productService: CallproductService) {}
+    
 
   
- }
- products : Product[];
- ngOnInit(): void {
-    this._productService.GetProducts().subscribe(res=>
-      {
-      console.log(res)
-      this.products= res;
-      console.log(this.products)
+
+   ngOnInit(): void {
+    this.myForm =this._fb.group({
+      name: new FormControl(null),
+      address: new FormControl(null),
+      marks: new FormControl(null),
+      file: new FormControl(null)
     });
     
-    this.GetProductByid();
-    this.AddProduct();
-  
-    }
-    product : Product;
-    GetProductByid()
-    {
-      this._productService.GetProductById(12).subscribe(res=>
-        {
-        console.log(res)
-        this.product= res;
-        console.log(this.product)
-      });  
- }
+  }
+   selectedFile: any;
+  onFileChange(event: any) {
 
- AddProduct()
- {
-  let product = {id:20, name :"Scanne",price:900};
-  this._productService.AddProduct(product).subscribe(res=>
-    {
-      console.log(res);
-    })
- }
+    this.selectedFile = <File>event.target.files[0];
+
+  }
+  submit(data: any) {
+ console.log(this.selectedFile)
+    
+     const formData = new FormData();
+    formData.append('documentId', "111");
+    formData.append('document',this.selectedFile);
+    formData.append('name', data.controls.name.value);
+    formData.append('address', data.controls.address.value);
+    formData.append('marks', data.controls.marks.value);
+    
+    console.log("formData" + formData);
+    this._productService.onFileUpload
+      (formData).subscribe(res =>
+        console.log("Res" + res)
+      )
+  }
+
+
 }

@@ -1,0 +1,20 @@
+<p>form1 works!</p>
+
+<form #form='ngForm'(ngSubmit)="Call(form)">
+ 
+    <div class="form-group">
+        <label for="firstName">First Name</label>
+         
+      <input type="text" name="firstName" pattern ="^[A-Z a-z]+" required minlength="5" maxlength="10"  #firstName="ngModel" ngModel class="form-control">
+       
+          
+        <!-- <div *ngIf="firstName.errors.minlength"> FirstName is must </div>  -->
+        <div *ngIf="firstName.touched && firstName.invalid">
+            <div *ngIf="firstName.errors?.['required']">
+                <span class="error"> Name is must </span>
+               </div>
+  </div><br>
+</div>
+  Enter Age :   <input type="number" name="age" ngModel/> <br>
+  <button type="submit"> Submit </button>
+</form>
